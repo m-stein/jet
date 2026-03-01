@@ -109,8 +109,54 @@ declare module "vector_2" {
         toString(): string;
     }
 }
+declare module "rectangle" {
+    export class Rectangle {
+        /**
+         * @param {Vector2} position
+         * @param {number} width
+         * @param {number} height
+         */
+        constructor(position: Vector2, width: number, height: number);
+        position: Vector2;
+        width: number;
+        height: number;
+        center: Vector2;
+        left: number;
+        right: number;
+        top: number;
+        bottom: number;
+        /**
+         * @param {Vector2} point
+         * @returns {boolean}
+         */
+        isInside(point: Vector2): boolean;
+        /**
+         * @param {Rectangle} other
+         * @returns {boolean}
+         */
+        intersectsWith(other: Rectangle): boolean;
+        /**
+         * @returns {Rectangle}
+         */
+        copy(): Rectangle;
+        /**
+         * @returns {string}
+         */
+        toString(): string;
+        /**
+         * @returns {Vector2}
+         */
+        bottomLeft(): Vector2;
+        /**
+         * @returns {Vector2}
+         */
+        bottomCenter(): Vector2;
+    }
+    import { Vector2 } from "jus";
+}
 declare module "jus" {
     export { ObjectFactory } from "./object_factory.js";
     export { JsonFile } from "./json_file.js";
     export { Vector2 } from "./vector_2.js";
+    export { Rectangle } from "./rectangle.js";
 }
